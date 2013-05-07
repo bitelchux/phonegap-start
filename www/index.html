@@ -3,7 +3,38 @@
     <body>
         
         <script>
-            
+            function setCookie(name, value, expires, path, domain, secure) {
+    document.cookie =
+    name + "=" + escape(value) +
+    (expires ? "; expires=" + expires.toGMTString() : "") +
+    (path ? "; path=" + path : "") +
+    (domain ? "; domain=" + domain : "") +
+    (secure ? "; secure" : "");
+}
+
+// ***** setCookieLT *****
+
+// PARAMETERS: lifetime - cookie lifetime in seconds
+
+function setCookieLT(name, value, lifetime, path, domain, secure) {
+    if (lifetime) { lifetime = new Date(Date.parse(new Date()) + lifetime * 1000); }
+    setCookie(name, value, lifetime, path, domain, secure);
+}
+
+// ***** getCookie *****
+
+function getCookie(name) {
+    var cookie, offset, end;
+    cookie = " " + document.cookie;
+    offset = cookie.indexOf(" " + name + "=");
+    if (offset == -1) { return undefined; }
+    offset += name.length + 2;
+    end = cookie.indexOf(";", offset)
+    if (end == -1) { end = cookie.length; }
+    return unescape(cookie.substring(offset, end));
+}
+        setCookie("level", "xxxx", new Date("January 01, 2020 00:00:01"));
+        alert(getCookie("level"))
             document.location.href='http://delasource.info/?pg=true'
         </script>
     </body>
