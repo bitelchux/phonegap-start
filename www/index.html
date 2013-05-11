@@ -1,4 +1,4 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Ghosts hunters</title>
@@ -40,6 +40,7 @@
       } ());
         function getURLParam(strParamName) {
             if (strParamName=="pg") return "si";
+            if (strParamName=="l") return "1";            
             var strReturn = "";
             var strHref = window.location.href;
             if (strHref.indexOf("?") > -1) {
