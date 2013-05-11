@@ -103,7 +103,7 @@
   cont = 0;
   //speed desde 0.5 hasta 3
   //numpajaros maximo 4
-  levels[cont++] = { tipoghost: 0, numpajaros: 1, bg: 'f1.jpg', txt: 'La Alhambra de Granada', fuel: 200, traptipo: 1, speed: 0.1 };
+  levels[cont++] = { tipoghost: 0, numpajaros: 4, bg: 'f1.jpg', txt: 'La Alhambra de Granada', fuel: 200, traptipo: 1, speed: 0.1 };
   levels[cont++] = { tipoghost: 0, numpajaros: 4, bg: 'f1.jpg', txt: 'La Alhambra de Granada', fuel: 200, traptipo: 0, speed: 0.1};
   levels[cont++] = { tipoghost: 1, numpajaros: 1, bg: 'f2.jpg', txt: 'Angkor', fuel: 200, traptipo: 0, speed: 2 };
   levels[cont++] = { tipoghost: 0, numpajaros: 2, bg: 'f2.jpg', txt: 'Angkor', fuel: 200, traptipo: 1, speed: 2 };
@@ -1256,6 +1256,8 @@ function MediaLibrary(g) {
                                 if (contclick-- >= 1 && loadingweapon <= 0) {
                                     c.width = c.width;
                                     rayos2();
+                                    ML.sounds["pium"].play();
+                                    
                                     if (currentlevel < 10) {
                                         fuel = fuel - 10
                                     } else {
@@ -1617,6 +1619,8 @@ function MediaLibrary(g) {
             ML.spritessrcs.push("fondo|" + levels[currentlevel].bg + "|" + ratiow + "|" + ratioh)
         }
         ML.soundssrcs.push("bgm|fase1.ogg|loop")
+        ML.soundssrcs.push("rayocaptura|rayo.mp3|loop")        
+        ML.soundssrcs.push("pium|pium2.mp3")           
         //ML.soundssrcs.push("fx1|bell1.ogg")                  
         function loadFinished() {
             alert("cargadas las imgs")
@@ -1653,7 +1657,7 @@ function MediaLibrary(g) {
     }
  }else{            
     function loadSoundsFinished() {
-      ML.sounds["bgm"].play();
+      //ML.sounds["bgm"].play();
     }                 
  }
                 
