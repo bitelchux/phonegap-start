@@ -463,7 +463,7 @@ function MediaLibrary(g) {
             } else {
                 var myAudio;
                 if (aux[2] == "loop") {
-                    myAudio = new Media("http://delasource.info/" + aux[1],
+                    myAudio = new Media(aux[1],
                     function () {
                         this.play();
                         //alert("loop phonegap");
@@ -473,7 +473,14 @@ function MediaLibrary(g) {
                         alert("playAudio():Audio Error: " + err);
                     });
                 } else {
-                    myAudio = new Media(aux[1]);
+                    myAudio = new Media(aux[1],
+                    function () {                    
+                        alert("sound phonegap");
+                    },
+                    // error callback
+                    function (err) {
+                        alert("playAudio():Audio Error: " + err);
+                    });
                 }
                 this.sounds[aux[0]] = myAudio;
             }
@@ -1256,7 +1263,7 @@ function MediaLibrary(g) {
                                 if (contclick-- >= 1 && loadingweapon <= 0) {
                                     c.width = c.width;
                                     rayos2();
-                                    ML.sounds["pium"].play();
+
                                     
                                     if (currentlevel < 10) {
                                         fuel = fuel - 10
@@ -1477,6 +1484,7 @@ function MediaLibrary(g) {
 	            }
 	            if (gamestatus == 0) {
 	                contclick = 2;
+                    ML.sounds["pium"].play();	                
 	            }
 	            if (ticker.status == 2) {
 	                ticker.contador = 1;
@@ -1522,6 +1530,7 @@ function MediaLibrary(g) {
 	            }
 	            if (gamestatus == 0) {
 	                contclick = 2;
+                    ML.sounds["pium"].play();	                
 	            }
 	            if (ticker.status == 2) {
 	                ticker.contador = 1;
