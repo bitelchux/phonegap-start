@@ -56,7 +56,13 @@
             }
             return strReturn;
         }
+function getPhoneGapPath() {
 
+    var path = window.location.pathname;
+    path = path.substr( path, path.length - 10 );
+    return 'file://' + path;
+
+};
     function setCookie(name, value, expires, path, domain, secure) {
     document.cookie =
     name + "=" + escape(value) +
@@ -464,7 +470,7 @@ function MediaLibrary(g) {
             } else {
                 var myAudio;
                 if (aux[2] == "loop") {
-                    myAudio = new Media(aux[1],
+                    myAudio = new Media(getPhoneGapPath() + aux[1],
                     function () {
                         this.play();
                         //alert("loop phonegap");
@@ -1628,9 +1634,10 @@ function MediaLibrary(g) {
             ML.spritessrcs.push("rayoanim|rayo0.png|" + ratiow + "|" + ratioh)
             ML.spritessrcs.push("fondo|" + levels[currentlevel].bg + "|" + ratiow + "|" + ratioh)
         }
+        ML.soundssrcs.push("pium|pium2.mp3")                   
         ML.soundssrcs.push("bgm|fase1.ogg|loop")
         ML.soundssrcs.push("rayocaptura|rayo.mp3|loop")        
-        ML.soundssrcs.push("pium|pium2.mp3")           
+
         //ML.soundssrcs.push("fx1|bell1.ogg")                  
         function loadFinished() {
             alert("cargadas las imgs")
