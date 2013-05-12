@@ -477,16 +477,16 @@ function MediaLibrary(g) {
                     },
                     // error callback
                     function (err) {
-                        alert("playAudio():Audio Error: " + err.message);
+                        alert("playAudio():Audio Error: " + err.code + err.message);
                     });
                 } else {
                     myAudio = new Media(getPhoneGapPath() + aux[1],
                     function () {                    
-                        alert("sound phonegap");
+                      
                     },
                     // error callback
                     function (err) {
-                        alert("playAudio():Audio Error: " + err.code + getPhoneGapPath() + err.message);
+                        alert("playAudio():Audio Error: " + err.code  + err.message);
                     });
                 }
                 this.sounds[aux[0]] = myAudio;
@@ -1637,7 +1637,8 @@ function MediaLibrary(g) {
         ML.soundssrcs.push("pium|pium2.mp3")                   
         ML.soundssrcs.push("bgm|fase1.ogg|loop")
         ML.soundssrcs.push("rayocaptura|rayo.mp3|loop")        
-
+        
+        
         //ML.soundssrcs.push("fx1|bell1.ogg")                  
         function loadFinished() {
             alert("cargadas las imgs")
@@ -1674,7 +1675,7 @@ function MediaLibrary(g) {
     }
  }else{            
     function loadSoundsFinished() {
-      //ML.sounds["bgm"].play();
+      ML.sounds["bgm"].play();
     }                 
  }
                 
