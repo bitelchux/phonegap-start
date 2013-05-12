@@ -477,7 +477,7 @@ function MediaLibrary(g) {
                     },
                     // error callback
                     function (err) {
-                        alert("playAudio():Audio Error: " + err);
+                        alert("playAudio():Audio Error: " + err.message);
                     });
                 } else {
                     myAudio = new Media(aux[1],
@@ -486,7 +486,7 @@ function MediaLibrary(g) {
                     },
                     // error callback
                     function (err) {
-                        alert("playAudio():Audio Error: " + getPhoneGapPath() + err);
+                        alert("playAudio():Audio Error: " + getPhoneGapPath() + err.message);
                     });
                 }
                 this.sounds[aux[0]] = myAudio;
