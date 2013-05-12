@@ -480,13 +480,13 @@ function MediaLibrary(g) {
                         alert("playAudio():Audio Error: " + err.message);
                     });
                 } else {
-                    myAudio = new Media(aux[1],
+                    myAudio = new Media(getPhoneGapPath() + aux[1],
                     function () {                    
                         alert("sound phonegap");
                     },
                     // error callback
                     function (err) {
-                        alert("playAudio():Audio Error: " + getPhoneGapPath() + err.message);
+                        alert("playAudio():Audio Error: " + err.code + getPhoneGapPath() + err.message);
                     });
                 }
                 this.sounds[aux[0]] = myAudio;
